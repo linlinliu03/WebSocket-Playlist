@@ -15,4 +15,10 @@ var io = socket(server);
 
 io.on("connection", (socket) => {
     console.log('made socket connection!')
+
+    // Handle chat event
+    socket.on('chat', function (data) {
+        // console.log(data);
+        io.sockets.emit('chat', data);
+    });
 })
